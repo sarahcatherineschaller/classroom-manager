@@ -29,7 +29,7 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'devise'
 
-gem 'omniauth-facebook'
+gem 'omniauth-github'
 
 gem 'dotenv-rails'
 
