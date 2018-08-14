@@ -1,0 +1,31 @@
+<% if @student.errors.any? %>
+	<h2>
+		<%= pluralize(@student.errors.count, "error") %>
+		prohibited the classroom from being saved:
+	</h2>
+	<ul>
+		<% @student.errors.full_messages.each do |msg| %>
+		<li><%= msg %></li>
+		<% end %>
+	</ul>
+<% end %>
+
+<h1>Create a New Student</h1>
+
+<%= form_for @student do |f| %>
+
+	<%= f.label :first_name %>
+	<%= f.text_field :first_name %>
+	<br>
+	<%= f.label :last_name %>
+	<%= f.text_field :last_name %>
+	<br>
+	<%= f.label :grade %>
+	<%= f.text_field :grade %>
+	<br><br>
+	<%= f.label 'Add student to already existing class(es):' %><br><br>
+	<%= f.collection_check_boxes :classroom_ids, current_user.classrooms.all, :id, :subject %>
+		<br>
+		<br>
+	<%= f.submit %>
+<% end %>
