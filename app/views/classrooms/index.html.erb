@@ -1,0 +1,5 @@
+<h1><%= current_user.title %> <%= current_user.last_name %>'s Classrooms</h1>
+
+<% current_user.classrooms.each do |classroom| %>
+	<div><%= link_to classroom.subject, user_classroom_path(current_user, classroom.id) %></div>
+<% end %>
