@@ -1,4 +1,21 @@
-<h1>Student Body</h1>
 
-<%= link_to 'Create a new student', new_student_path %>
+<h1><u>Student Body</u></h1>
+<%= button_to 'Create a new student', new_student_path %>
 
+<h3>Elementary School:</h3>
+<% @students.elementary_school.order(:last_name).each do |student| %>
+	<%= link_to student.last_name_first_name, student %>
+	<br>
+<% end %>
+<br>
+<h3>Middle School:</h3>
+<% @students.middle_school.order(:last_name).each do |student| %>
+	<%= link_to student.last_name_first_name, student %>
+	<br>
+<% end %>
+<br>
+<h3>High School:</h3>
+<% @students.high_school.order(:last_name).each do |student| %>
+	<%= link_to student.last_name_first_name, student %>
+	<br>
+<% end %>
