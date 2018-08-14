@@ -1,24 +1,20 @@
-# README
+#Classroom Manager
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is my portfolio project for the Flatiron School. It is a Rails App that allows teachers to create profiles to manage their classrooms and students. 
 
-Things you may want to cover:
+## To run this app:
+Fork and clone the repository 
+Run bundle install inside the directory
+Start a local server and create a profile!
 
-* Ruby version
+##Contributing
 
-* System dependencies
+Bug reports and pull requests are welcome on GitHub at https://github.com/sarahschaller/rails-project. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the Contributor Covenant code of conduct.
 
-* Configuration
+##License
 
-* Database creation
+The gem is available as open source under the terms of the MIT License.
 
-* Database initialization
+##Code of Conduct
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Everyone interacting in the project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the code of conduct.
