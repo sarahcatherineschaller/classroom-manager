@@ -1,6 +1,6 @@
 
 <h1><u>Student Body</u></h1>
-<%= button_to 'Create a new student', new_student_path %>
+<%= link_to 'Create a new student', new_student_path %>
 
 <h3>Elementary School:</h3>
 <% @students.elementary_school.order(:last_name).each do |student| %>
