@@ -1,0 +1,25 @@
+<% if @classroom.errors.any? %>
+	<h2>
+		<%= pluralize(@classroom.errors.count, "error") %>
+		prohibited the classroom from being saved:
+	</h2>
+	<ul>
+		<% @classroom.errors.full_messages.each do |msg| %>
+		<li><%= msg %></li>
+		<% end %>
+	</ul>
+<% end %>
+
+<%= form_for @classroom, url: user_classrooms_path do |f| %>
+
+	<%= f.label :subject %>
+	<%= f.text_field :subject %>
+	<br><br>
+	<%= f.label 'Add already existing students to the classroom:' %><br><br>
+	<%= f.collection_check_boxes :student_ids, Student.all, :id, :full_name %>
+	<br>
+	<%= f.hidden_field :id, value: @user.id %>
+	<br>
+
+	<%= f.submit %>
+<% end %>
