@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable 
 
   validates :title, inclusion: { in: %w(Mr. Ms. Mrs.), message: "(Please use Mr., Ms., or Mrs.)"}
-  validates :title, :first_name, :last_name, :email, :password, presence: true
+  validates :title, :first_name, :last_name, :email, presence: true
   validates :email, uniqueness: true
 
   has_many :classrooms 
