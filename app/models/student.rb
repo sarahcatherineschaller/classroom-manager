@@ -15,4 +15,13 @@ class Student < ApplicationRecord
 		self.first_name = self.first_name.titlecase 
 		self.last_name = self.last_name.titlecase 
 	end
+
+	def full_name
+		"#{first_name} #{last_name}"
+	end
+
+	def last_name_first_name
+		"#{last_name}, #{first_name}"
+	end
+
 end
