@@ -1,0 +1,12 @@
+<p>Student Name: <%= @student.full_name %></p>
+<p>Grade: <%= @student.grade %></p>
+<p>Classes:<br>
+	<% @student.classrooms.each do |classroom| %>
+		<%= "#{classroom.subject} -  #{classroom.user.title} #{classroom.user.last_name}"%>
+		<br>
+	<% end %>
+</p>
+
+
+<br><br>
+<%= link_to 'Edit Student', edit_student_path %>

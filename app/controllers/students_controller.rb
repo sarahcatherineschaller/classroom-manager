@@ -22,6 +22,8 @@ class StudentsController < ApplicationController
 
 	def show 
 		@student = Student.find_by(id:params[:id])
+		@users = User.all 
+		@classrooms = Classroom.all
 	end 
 
 	def edit 
