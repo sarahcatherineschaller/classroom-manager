@@ -7,6 +7,10 @@ class Student < ApplicationRecord
 
 	before_validation :make_title_case 
 
+	scope :elementary_school, -> { where(grade: [1,2,3,4,5]) }
+	scope :middle_school, -> { where(grade: [6,7,8]) }
+	scope :high_school, -> { where(grade: [9,10,11,12]) }
+
 	def make_title_case 
 		self.first_name = self.first_name.titlecase 
 		self.last_name = self.last_name.titlecase 
