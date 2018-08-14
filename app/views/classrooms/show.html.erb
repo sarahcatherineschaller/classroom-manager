@@ -1,0 +1,11 @@
+<h1><%= @classroom.subject %></h1>
+
+<h2>Student Roster:</h2>
+<% @classroom.students.order(:last_name).each do |student| %>
+	<%= student.last_name %>, <%= student.first_name %>
+	<br>
+<% end %>
+<br><br>
+
+<%= link_to 'Edit Classroom', edit_user_classroom_path %>
+
