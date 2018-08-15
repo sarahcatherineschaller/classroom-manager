@@ -7,7 +7,7 @@ Fork and clone the repository. Run bundle install inside the directory. Start a 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/sarahschaller/classroom-manager. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the Contributor Covenant code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/sarahcatherineschaller/classroom-manager. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the Contributor Covenant code of conduct.
 
 ## License
 
