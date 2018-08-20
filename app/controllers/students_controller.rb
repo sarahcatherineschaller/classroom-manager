@@ -26,6 +26,12 @@ class StudentsController < ApplicationController
 		@classrooms = Classroom.all
 	end 
 
+	# def most_students 
+	# 	@classrooms = Classroom.all 
+	# 	@students = Student.all 
+	# 	@user = current_user 
+	# end
+
 	def edit 
 		@student = Student.find_by(id:params[:id])
 	end 

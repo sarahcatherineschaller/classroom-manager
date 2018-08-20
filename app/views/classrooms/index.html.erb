@@ -8,3 +8,6 @@
 <% current_user.classrooms.each do |classroom| %>
 	<div><%= link_to classroom.subject, user_classroom_path(current_user, classroom) %></div>
 <% end %>
+
+<br>
+<%= link_to 'Classroom with the most students', most_students_path %>

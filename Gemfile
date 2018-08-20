@@ -31,6 +31,8 @@ gem 'devise'
 
 gem 'omniauth-github'
 
+gem 'omniauth-google-oauth2'
+
 gem 'dotenv-rails'
 
 # Use ActiveStorage variant
