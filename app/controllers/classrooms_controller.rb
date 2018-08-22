@@ -1,6 +1,7 @@
 class ClassroomsController < ApplicationController
 	def index 
 		@classrooms = User.find(params[:user_id]).classrooms 
+		@students = Student.all
 	end 
 	
 
@@ -19,6 +20,11 @@ class ClassroomsController < ApplicationController
 		else 
 			render 'new'
 		end
+	end
+
+	def most_students
+		@classrooms = Classroom.all 
+		@students = Student.all 
 	end
 
 
@@ -50,7 +56,7 @@ class ClassroomsController < ApplicationController
 		@classroom = Classroom.find_by(id:params[:id])
 		@classroom.user_id = @user.id
 		@classroom.destroy
-		redirect_to user_path 
+		redirect_to user_classroom_path
 	end
 
 	private 

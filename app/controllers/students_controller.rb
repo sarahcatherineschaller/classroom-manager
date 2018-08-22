@@ -22,15 +22,8 @@ class StudentsController < ApplicationController
 
 	def show 
 		@student = Student.find_by(id:params[:id])
-		@users = User.all 
-		@classrooms = Classroom.all
 	end 
 
-	# def most_students 
-	# 	@classrooms = Classroom.all 
-	# 	@students = Student.all 
-	# 	@user = current_user 
-	# end
 
 	def edit 
 		@student = Student.find_by(id:params[:id])
@@ -51,7 +44,7 @@ class StudentsController < ApplicationController
 		@user = current_user
 		@student = Student.find_by(id:params[:id])
 		@student.destroy
-		redirect_to user_path
+		redirect_to user_classroom_path
 	end
 
 	private
