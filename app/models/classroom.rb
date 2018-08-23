@@ -1,6 +1,5 @@
 class Classroom < ApplicationRecord
 	belongs_to :user
-	belongs_to :student
 	has_many :student_classrooms 
 	has_many :students, through: :student_classrooms 
 
