@@ -7,7 +7,7 @@ class Classroom < ApplicationRecord
 
 	before_validation :make_title_case 
 
-	scope :most_students, -> { order("classrooms.student_id DESC").limit(1) }
+	scope :number_of_students, -> { joins(:students).select("classrooms.*, count(students.id) as scount").group("classrooms.id").order("scount DESC").limit(1) }
 
 	def make_title_case 
 		self.subject = self.subject.titlecase 

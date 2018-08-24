@@ -1,5 +1,11 @@
 <h1>Classroom with the Most Students:</h1>
+ 
 
-<% @classrooms.most_students.each do |classroom| %>
-	<h3><%= classroom.subject %></h3>
-<% end %>
+ <% @classrooms.number_of_students.each do |classroom| %>
+ 	<h2><%= classroom.subject %></h2>
+ 	<h4>Student Roster:</h4>
+ 	<% classroom.students.each do |student| %>
+ 		<%= student.full_name %>
+ 		<br>
+ 	<% end %>
+ <% end %>

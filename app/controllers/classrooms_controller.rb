@@ -25,6 +25,7 @@ class ClassroomsController < ApplicationController
 	def most_students
 		@classrooms = Classroom.all 
 		@students = Student.all 
+		@classroom = @classrooms.find_by(params[:number_of_students])
 	end
 
 

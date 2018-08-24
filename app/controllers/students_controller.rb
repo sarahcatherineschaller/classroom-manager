@@ -44,7 +44,7 @@ class StudentsController < ApplicationController
 		@user = current_user
 		@student = Student.find_by(id:params[:id])
 		@student.destroy
-		redirect_to user_classroom_path
+		redirect_to root_path
 	end
 
 	private

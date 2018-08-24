@@ -4,8 +4,3 @@
 
 <h3><%= link_to 'All Students', students_path %></h3>
 
-<h3>My Current Students:</h3>
-<% current_user.students.order(:last_name).each do |student| %>
-	<%= link_to student.full_name, student %>
-	<br>
-<% end %>
