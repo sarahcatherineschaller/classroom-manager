@@ -35,6 +35,10 @@ gem 'omniauth-google-oauth2'
 
 gem 'dotenv-rails'
 
+gem 'active_model_serializers'
+
+gem 'jquery-rails'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 

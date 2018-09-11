@@ -6,7 +6,7 @@
 <br>
 
 <% current_user.classrooms.each do |classroom| %>
-	<div><%= link_to classroom.subject, user_classroom_path(current_user, classroom) %></div>
+	<div id="classroom-<%= classroom.id %>"><%= link_to classroom.subject, user_classroom_path(current_user, classroom) %></div>
 <% end %>
 
 <br>
