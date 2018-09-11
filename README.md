@@ -1,13 +1,13 @@
 # Classroom Manager
 
-This is my portfolio project for the Flatiron School. It is a Rails App that allows teachers to create profiles to manage their classrooms and students. 
+This is a Rails application for teachers! Teachers are able to create profiles to manage their classrooms and students for their school system.
 
 ## To run this app:
 Fork and clone the repository. Run bundle install inside the directory. Start a local server and create a profile!
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/sarahschaller/classroom-manager. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the Contributor Covenant code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/sarahcatherineschaller/classroom-manager. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the Contributor Covenant code of conduct.
 
 ## License
 
