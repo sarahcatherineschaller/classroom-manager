@@ -9,3 +9,10 @@
 
 <%= link_to 'Edit Classroom', edit_user_classroom_path %>
 
+<a href="#" class="js-next" data-id="<%= @classroom.id %>">Next Classroom</a> 
+<h1 class="classroomSubject"><%= @classroom.subject %></h1>
+<p class="studentRoster"><% @classroom.students.order(:last_name).each do |student| %>
+	<%= student.last_name %>, <%= student.first_name %>
+	<br>
+	<% end %>
+</p>

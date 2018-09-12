@@ -34,6 +34,7 @@ class ClassroomsController < ApplicationController
 		@user = current_user
 		@classroom = Classroom.find_by(id:params[:id])
 		@user.id = @classroom.user_id
+		
 	end 
 
 	def edit 
