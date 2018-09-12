@@ -1,16 +1,5 @@
 $(function() {
 	$("a.my_classrooms").on("click", function(e) {
-		// $.ajax({
-		// 	method: "GET",
-		// 	url: this.href
-		// }).done(function(data) {
-		// 	$("div.classrooms").html(data)
-		// })
-
-		// $.get(this.href).success(function(data) {
-		// 	$("div.classrooms").html(data)
-		// })
-
 		$.get(this.href).done(function(json) {
 			var $classrooms = $("div.classrooms")
 			$classrooms.html("") 
@@ -23,6 +12,32 @@ $(function() {
 
 		e.preventDefault();
 	});
+
+	$('#new_classroom').on("submit", function(e) {
+		e.preventDefault();
+
+		$.ajax({
+			type: "POST",
+			url: this.action,
+			data: $(this).serialize(),
+			dataType: "json",
+			success: function(response) {
+				var $subject = $("div.subject").html("");
+				// $subject.append("<li>" + response.subject + "</li>")
+
+			}
+		// })
+
+		// var posting = $.post(this.action, values);
+
+		// posting.done(function(data) {
+		// 	var classroom = data;
+		// 	$("#subject").text(classroom["subject"]);
+		// });
+		})
+
+
+	})
 
 });
 

@@ -17,9 +17,9 @@ class ClassroomsController < ApplicationController
 		@classroom.user_id = @user.id
 		if @classroom.valid?
 			@classroom.save
-			redirect_to user_classroom_path(@user.id, @classroom.id)
+			render json: @classroom, status: 201
 		else 
-			render 'new'
+			render 'users/index'
 		end
 	end
 
