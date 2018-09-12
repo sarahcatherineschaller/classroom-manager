@@ -2,6 +2,7 @@ class ClassroomsController < ApplicationController
 	def index 
 		@classrooms = User.find(params[:user_id]).classrooms 
 		@students = Student.all
+		render 'classrooms/index', :layout => false
 	end 
 	
 
