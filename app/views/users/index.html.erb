@@ -1,5 +1,11 @@
 <h1>Welcome to <%= current_user.title %> <%= current_user.first_name %> <%= current_user.last_name %>'s Classroom Manager!</h1>
 
+<br>
+
+<%= link_to 'Create a new classroom', new_user_classroom_path(current_user) %>
+
+<br>
+
 <h3><%= link_to 'My Classrooms', user_classrooms_path(current_user), :class => "my_classrooms" %></h3>
 
 <div class="classrooms">
