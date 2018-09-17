@@ -1,8 +1,12 @@
 class ClassroomsController < ApplicationController
+	before_action :set_classroom, only: [:show, :edit, :update, :destroy]
+
 	def index 
 		@classrooms = User.find(params[:user_id]).classrooms 
 		@students = Student.all
-		render :json => @classrooms
+		@classroom = @classrooms.first
+
+		render 'show'
 	end 
 	
 
@@ -17,7 +21,7 @@ class ClassroomsController < ApplicationController
 		@classroom.user_id = @user.id
 		if @classroom.valid?
 			@classroom.save
-			render json: @classroom, status: 201
+			render 'classrooms/show', :layout => false
 		else 
 			render 'users/index'
 		end
@@ -32,20 +36,16 @@ class ClassroomsController < ApplicationController
 
 	def show 
 		@user = current_user
-		@classroom = Classroom.find_by(id:params[:id])
 		@user.id = @classroom.user_id
-		
 	end 
 
 	def edit 
 		@user = current_user
-		@classroom = Classroom.find_by(id:params[:id])
 		@classroom.user_id = @user.id
 	end
 
 	def update 
 		@user = current_user
-		@classroom = Classroom.find_by(id:params[:id])
 		if @classroom.valid?
 			@classroom.update(classroom_params)
 			redirect_to user_classroom_path(@user.id,@classroom.id)
@@ -56,13 +56,22 @@ class ClassroomsController < ApplicationController
 
 	def destroy
 		@user = current_user
-		@classroom = Classroom.find_by(id:params[:id])
 		@classroom.user_id = @user.id
 		@classroom.destroy
 		redirect_to user_classroom_path
 	end
 
+	def classroom_data
+		classroom = Classroom.find(params[:id])
+		render json: classroom.to_json
+	end
+
 	private 
+
+	def set_classroom 
+		@classroom = Classroom.find(params[:id])
+	end 
+
 	def classroom_params 
 		params.require(:classroom).permit(:subject, :user_id, student_ids:[])
 	end

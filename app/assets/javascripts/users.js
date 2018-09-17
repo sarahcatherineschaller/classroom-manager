@@ -15,6 +15,7 @@ $(function() {
 
 	$('#new_classroom').on("submit", function(e) {
 		e.preventDefault();
+		debugger
 
 		$.ajax({
 			type: "POST",
@@ -22,7 +23,8 @@ $(function() {
 			data: $(this).serialize(),
 			dataType: "json",
 			success: function(response) {
-				var $subject = $("div.subject").html("");
+				
+				// var $subject = $("div.subject").html("");
 				// $subject.append("<li>" + response.subject + "</li>")
 
 			}

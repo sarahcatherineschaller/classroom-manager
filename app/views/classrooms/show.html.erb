@@ -1,18 +1,6 @@
-<h1><%= @classroom.subject %></h1>
 
-<h2>Student Roster:</h2>
-<% @classroom.students.order(:last_name).each do |student| %>
-	<%= student.last_name %>, <%= student.first_name %>
-	<br>
-<% end %>
-<br><br>
 
-<%= link_to 'Edit Classroom', edit_user_classroom_path %>
+<div class="classroomSubject"><%= @classroom.subject %>
+</div>
 
-<a href="#" class="js-next" data-id="<%= @classroom.id %>">Next Classroom</a> 
-<h1 class="classroomSubject"><%= @classroom.subject %></h1>
-<p class="studentRoster"><% @classroom.students.order(:last_name).each do |student| %>
-	<%= student.last_name %>, <%= student.first_name %>
-	<br>
-	<% end %>
-</p>
+<a href="#" class="js-next" data-id="<%= @classroom.id %>">Next...</a> 

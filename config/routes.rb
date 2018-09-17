@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   root 'users#index'
   
   resources :users do 
-  	resources :classrooms  
+  	resources :classrooms
+    
   end
 
   resource :classrooms, only:[:index] do 
@@ -15,6 +16,11 @@ Rails.application.routes.draw do
 
 
   resources :students 
+
+  get 'users/:user_id/classrooms/:id/classroom_data', to: 'classrooms#classroom_data', as: 'classroom_data'
+ 
+
+
 
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
