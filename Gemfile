@@ -39,6 +39,8 @@ gem 'active_model_serializers'
 
 gem 'jquery-rails'
 
+gem 'bootstrap'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
