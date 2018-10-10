@@ -1,9 +1,8 @@
 
-
+<br>
 <% current_user.classrooms.each do |classroom| %>
-	<div id="classroom-<%= classroom.id %>"><%= link_to classroom.subject, user_classroom_path(current_user, classroom) %></div>
+	<%= link_to classroom.subject, user_classroom_path(current_user, classroom) %><br>
 <% end %>
 
 <br>
-<%= link_to 'Classroom with the Most Students', most_students_classrooms_path %>
 

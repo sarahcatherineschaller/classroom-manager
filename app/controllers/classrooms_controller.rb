@@ -4,9 +4,8 @@ class ClassroomsController < ApplicationController
 	def index 
 		@classrooms = User.find(params[:user_id]).classrooms 
 		@students = Student.all
-		@classroom = @classrooms.first
 
-		render 'show'
+	
 	end 
 	
 

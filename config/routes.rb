@@ -19,6 +19,7 @@ Rails.application.routes.draw do
 
   get 'users/:user_id/classrooms/:id/classroom_data', to: 'classrooms#classroom_data', as: 'classroom_data'
  
+  get 'students/:id/student_data', to: 'students#student_data', as: 'student_data'
 
 
 

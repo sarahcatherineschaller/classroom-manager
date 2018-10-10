@@ -47,6 +47,11 @@ class StudentsController < ApplicationController
 		redirect_to root_path
 	end
 
+	def student_data 
+		@student = Student.find(params[:id])
+		render json: @student.to_json
+	end
+
 	private
 	def student_params 
 		params.require(:student).permit(:first_name, :last_name, :grade, classroom_ids:[])
