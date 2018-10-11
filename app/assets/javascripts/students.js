@@ -1,13 +1,12 @@
-
-
 // $(function() {
-// 	$(".js-next").on("click", function() {
-// 		var nextId = parseInt($(".js-next").attr("data-id")) + 1;
-// 		$.getJSON("/students/" + nextId + "/student_data", function(data) {
-			 
-// 			$(".studentName").text(data["last_name"]);
+// 	$("a.student_name").on("click", function(e) {
+		
 
-// 			$(".js-next").attr("data-id", data["id"]);
-// 		});
-// 	});
-// });
+// 		$.get(this.href, function(data) {
+			
+			
+// 		})
+
+// 		e.preventDefault();
+// 	})
+// })

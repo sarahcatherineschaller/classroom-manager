@@ -4,10 +4,13 @@
 <br>
 <br>
 
+
 <% @students.order(:last_name).each do |student| %>
-	<%= link_to student.last_name_first_name, student_path(student) %> - Grade: <%= student.grade %>
+	<%= link_to student.last_name_first_name, student_path(student), :class => "student_name" %>
 	<br>
+	<div class="student-info"></div>
 <% end %>
+
 
 <br><br>
 

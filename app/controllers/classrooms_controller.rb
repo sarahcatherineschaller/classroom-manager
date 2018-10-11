@@ -20,7 +20,7 @@ class ClassroomsController < ApplicationController
 		@classroom.user_id = @user.id
 		if @classroom.valid?
 			@classroom.save
-			render 'classrooms/show', :layout => false
+			redirect_to user_classrooms_path(current_user)
 		else 
 			render 'users/index'
 		end
