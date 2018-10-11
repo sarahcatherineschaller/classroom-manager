@@ -65,7 +65,7 @@ class ClassroomsController < ApplicationController
 		@user = current_user
 		@classroom.user_id = @user.id
 		@classroom.destroy
-		redirect_to user_classroom_path
+		redirect_to user_classrooms_path
 	end
 
 	def next_classroom 
