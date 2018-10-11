@@ -62,8 +62,22 @@ class ClassroomsController < ApplicationController
 
 	def classroom_data
 		classroom = Classroom.find(params[:id])
-		render json: classroom.to_json
+		render json: classroom
 	end
+
+	def next_classroom 
+		@classroom = Classroom.find(params[:id])
+		@next_classroom = @classroom.next 
+		render json: @next_classroom 
+	end 
+
+	def previous_classroom 
+		@classroom = Classroom.find(params[:id])
+		@previous_classroom = @classroom.previous 
+		render json: @previous_classroom 
+	end
+
+
 
 	private 
 

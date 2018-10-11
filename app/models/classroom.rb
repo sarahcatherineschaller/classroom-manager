@@ -12,4 +12,22 @@ class Classroom < ApplicationRecord
 	def make_title_case 
 		self.subject = self.subject.titlecase 
 	end
+
+	def next 
+		if next_classroom = self.class.where("id > ?", id).first 
+			next_classroom 
+		else 
+			Classroom.first 
+		end 
+	end 
+
+	def previous 
+		if previous_classroom = self.class.where("id < ?", id).last 
+			previous_classroom 
+		else 
+			Classroom.last 
+		end 
+	end
 end
+
+

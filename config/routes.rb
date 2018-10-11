@@ -17,10 +17,13 @@ Rails.application.routes.draw do
 
   resources :students 
 
-  get 'users/:user_id/classrooms/:id/classroom_data', to: 'classrooms#classroom_data', as: 'classroom_data'
- 
-  get 'students/:id/student_data', to: 'students#student_data', as: 'student_data'
+  get 'users/:user_id/classrooms/:id/classroom_data', to: 'classrooms#classroom_data'
 
+  get '/users/:user_id/classrooms/:id/next', to: 'classrooms#next_classroom'
+
+  get '/users/:user_id/classrooms/:id/previous', to: 'classrooms#previous_classroom'
+ 
+  # get 'students/:id/student_data', to: 'students#student_data', as: 'student_data'
 
 
   
