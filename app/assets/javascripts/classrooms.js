@@ -28,7 +28,7 @@ $(function() {
 	$(".js-previous").on("click", function(e) {
 		var id = $(".js-previous").attr("data-id")
 		var userId = parseInt(window.location.pathname.split("/")[2])
-		$.get("/users/" + userId + "/classrooms" + id + "/previous", function(data) {
+		$.get("/users/" + userId + "/classrooms/" + id + "/previous", function(data) {
 			loadClassroom(data);
 		});
 		e.preventDefault();
