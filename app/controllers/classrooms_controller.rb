@@ -36,7 +36,15 @@ class ClassroomsController < ApplicationController
 	def show 
 		@user = current_user
 		@user.id = @classroom.user_id
-	end 
+		@students = @classroom.students
+
+		respond_to do |format| 
+			format.html {render :show}
+			format.json do 
+				render json: @classroom.to_json 
+			end 
+		end
+	end
 
 	def edit 
 		@user = current_user
@@ -58,11 +66,6 @@ class ClassroomsController < ApplicationController
 		@classroom.user_id = @user.id
 		@classroom.destroy
 		redirect_to user_classroom_path
-	end
-
-	def classroom_data
-		classroom = Classroom.find(params[:id])
-		render json: classroom
 	end
 
 	def next_classroom 

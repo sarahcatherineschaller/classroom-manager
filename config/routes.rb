@@ -17,7 +17,6 @@ Rails.application.routes.draw do
 
   resources :students 
 
-  get 'users/:user_id/classrooms/:id/classroom_data', to: 'classrooms#classroom_data'
 
   get '/users/:user_id/classrooms/:id/next', to: 'classrooms#next_classroom'
 

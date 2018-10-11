@@ -1,16 +1,14 @@
 
 
 <div class="classroomSubject">
-	<%= @classroom.subject %>
-
+	<h3><%= @classroom.subject %>
 </div>
 
 <div class="classroomStudents">
-	<ul>	
-		<% @classroom.students.each do |student| %>
-			<li><%= student.first_name %> <%= student.last_name %></li>
-		<% end %>
-	</ul>
+	<% @students.each do |student| %>
+		<%= student.full_name %>
+		<br>
+	<% end %>
 </div>
 
 <a href="#" class="js-previous" data-id="<%= @classroom.id %>">Previous</a> | <a href="#" class="js-next" data-id="<%= @classroom.id %>">Next</a> 
