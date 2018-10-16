@@ -22,6 +22,14 @@ class StudentsController < ApplicationController
 
 	def show 
 		@student = Student.find_by(id:params[:id])
+		@user = current_user
+		@classrooms = @student.classrooms 
+		respond_to do |format|
+			format.html {render :show}
+			format.json do 
+				render json: @student.to_json 
+			end 
+		end
 		
 	end 
 
@@ -46,6 +54,18 @@ class StudentsController < ApplicationController
 		@student = Student.find_by(id:params[:id])
 		@student.destroy
 		redirect_to root_path
+	end
+
+	def next_student 
+		@student = Student.find(params[:id])
+		@next_student = @student.next 
+		render json: @next_student
+	end 
+
+	def previous_student
+		@student = Student.find(params[:id])
+		@previous_student = @student.previous 
+		render json: @previous_student
 	end
 
 

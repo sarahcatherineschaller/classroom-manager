@@ -1,26 +1,37 @@
-// $(function() {
-// 	$("a.student-info").on("click", function(e) {
+$(function() {
 
-// 		var id = $(this).data("id");
-// 		$.get("/students/" + id + ".json", function(data) {
-// 			var student = data;
+	function loadStudent(data) {
+		
+		$(".js-next-student").attr("data-id", data["id"]);
+		$(".js-previous-student").attr("data-id", data["id"]);
+		var $student_name = $(".studentName").html('');
+		$student_name.append("<h3>" + data.first_name + " " + data.last_name + "</h3>");
+		
+		var $classrooms = $(".studentClassrooms").html(''); 
+		data['classrooms'].forEach(function(classroom) {
+			subject = classroom.subject
+			$classrooms.append(`<tr><td>${subject}`);
+		});
+	}
 
-// 			var gradeText = "<p>Grade: " + student["grade"] + "</p>";
-
-// 			var classrooms = student["classrooms"];
-// 			var classroomList = "";
-// 			classrooms.forEach(function(classroom) {
-// 				classroomList += classroom["subject"] + "<br>"
-// 			});
+	$(".js-next-student").on("click", function(e) {
+		
+		var id = $(".js-next-student").attr("data-id") 
+		$.get("/students/" + id + "/next", function(data) {
 			
 
+			loadStudent(data);
+		});
+		e.preventDefault();
+	});
 
-// 			$("#student-" + id + "-grade").html(gradeText);
-// 			$("#student-" + id + "-classrooms").html(classroomList);
-		
+	$(".js-previous-student").on("click", function(e) {
+		var id = $(".js-previous-student").attr("data-id")
+		$.get("/students/" + id + "/previous", function(data) {
+			loadStudent(data);
+		});
+		e.preventDefault();
+	});
 
+});
 
-// 		});
-// 		e.preventDefault();
-// 	});
-// }); 

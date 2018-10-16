@@ -19,8 +19,10 @@ Rails.application.routes.draw do
 
 
   get '/users/:user_id/classrooms/:id/next', to: 'classrooms#next_classroom'
-
   get '/users/:user_id/classrooms/:id/previous', to: 'classrooms#previous_classroom'
+
+  get '/students/:id/next', to: 'students#next_student'
+  get '/students/:id/previous', to: 'students#previous_student'
  
 
 

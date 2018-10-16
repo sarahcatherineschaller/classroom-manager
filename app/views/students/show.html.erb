@@ -1,7 +1,8 @@
+<div class="studentName">
+	<h3><%= @student.full_name %></h3>
+</div>
 
-<h3><%= @student.full_name %></h3>
-
-<div class="student-info">
+<div class="studentClassrooms">
 	Grade: <%= @student.grade %>
 	<br>
 	<% @student.classrooms.each do |classroom| %>
@@ -10,5 +11,8 @@
 	<% end %>
 </div>
 
+<a href="#" class="js-previous-student" data-id="<%= @student.id %>">Previous</a> | <a href="#" class="js-next-student" data-id="<%= @student.id %>">Next</a> 
+
+<br>
 <br>
 <%= link_to 'Edit Student', edit_student_path %>

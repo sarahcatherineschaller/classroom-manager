@@ -1,7 +1,7 @@
 class Student < ApplicationRecord
-	has_many :users, through: :classrooms 
 	has_many :student_classrooms 
 	has_many :classrooms, through: :student_classrooms
+	has_many :users, through: :classrooms 
 
 	validates :first_name, :last_name, :grade, presence: true 
 
@@ -24,6 +24,22 @@ class Student < ApplicationRecord
 
 	def last_name_first_name
 		"#{last_name}, #{first_name}"
+	end
+
+	def next 
+		if next_student = self.class.where("id > ?", id).first 
+			next_student
+		else 
+			Student.first 
+		end 
+	end 
+
+	def previous 
+		if previous_student = self.class.where("id < ?", id).last 
+			previous_student
+		else 
+			Student.last 
+		end 
 	end
 
 end
