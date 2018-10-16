@@ -3,9 +3,8 @@ class ClassroomsController < ApplicationController
 
 	def index 
 		@classrooms = User.find(params[:user_id]).classrooms 
-		@students = Student.all
-
-	
+		@user = current_user
+		render json: @classrooms.to_json
 	end 
 	
 
