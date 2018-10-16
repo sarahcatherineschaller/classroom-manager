@@ -22,7 +22,7 @@ Rails.application.routes.draw do
 
   get '/users/:user_id/classrooms/:id/previous', to: 'classrooms#previous_classroom'
  
-  get 'students/:id/student_data', to: 'students#student_data', as: 'student_data'
+
 
 
   

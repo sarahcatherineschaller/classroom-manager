@@ -1,7 +1,7 @@
 class StudentsController < ApplicationController
 	def index 
 		@students = Student.all
-		@student = Student.find_by(id:params[:id])
+		render json: @students.to_json
 	end 
 
 	def new 
@@ -22,12 +22,6 @@ class StudentsController < ApplicationController
 
 	def show 
 		@student = Student.find_by(id:params[:id])
-
-		respond_to do |format| 
-			format.html {render :show}
-			format.json { render json: @student.to_json(only: [:first_name, :last_name, :grade, :id], include: [ classrooms: { only: [:subject]}])}
-			
-		end
 		
 	end 
 
@@ -54,10 +48,6 @@ class StudentsController < ApplicationController
 		redirect_to root_path
 	end
 
-	def student_data
-		@student = Student.find_by(id:params[:id])
-		render json: @student.to_json(only: [:first_name, :last_name, :grade, :id], include: [ classrooms: { only: [:subject]}])
-	end 
 
 
 	private

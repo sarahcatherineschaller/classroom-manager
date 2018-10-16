@@ -6,9 +6,9 @@
 
 
 <% @students.order(:last_name).each do |student| %>
-	<%= link_to student.last_name_first_name, student_path(student), :class => "student_name" %>
-	<br>
-	<div class="student-info"></div>
+	<%= link_to student.full_name, student_path(student.id) %><br>
+
+	
 <% end %>
 
 
