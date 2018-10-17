@@ -34,4 +34,11 @@ $(function() {
 		e.preventDefault();
 	});
 
+	//submit student via AJAX
+	$("#new_student").on("submit", function(e) {
+		alert("you clicked submit!");
+
+		e.preventDefault();
+	});
+
 });
