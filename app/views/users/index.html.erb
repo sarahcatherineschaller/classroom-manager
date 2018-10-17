@@ -6,7 +6,7 @@
 <br>
 
 <h4>Add a new classroom:</h4>
-<%= form_for(@classroom, :url => user_classrooms_path(current_user)) do |f| %>
+<%= form_for([current_user, @classroom]) do |f| %>
 	<%= f.label :subject %>
 	<%= f.text_field :subject %>
 	<br>
