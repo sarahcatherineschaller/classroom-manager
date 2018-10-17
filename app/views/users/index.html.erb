@@ -3,9 +3,34 @@
 
 <h3><%= link_to 'My Classrooms', user_classrooms_path(current_user), :class => "load_classrooms" %></h3>
 <div class="classrooms"></div>
+<br>
+
+<h4>Add a new classroom:</h4>
+<%= form_for(@classroom, :url => user_classrooms_path(current_user)) do |f| %>
+	<%= f.label :subject %>
+	<%= f.text_field :subject %>
+	<br>
+	<%= f.submit %>
+<% end %>
+
+
 
 <br>
 <h3><%= link_to 'All Students', students_path, :class => "load_students" %></h3>
 <div class="students"></div>
+<br>
 
+<h4>Add a new student:</h4>
+<%= form_for(@student) do |f| %>
+	<%= f.label :first_name %>
+	<%= f.text_field :first_name %>
+	<br>
 
+	<%= f.label :last_name %>
+	<%= f.text_field :last_name %>
+
+	<br>
+
+	<%= f.submit %>
+
+<% end %>

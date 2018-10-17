@@ -19,7 +19,7 @@ class ClassroomsController < ApplicationController
 		@classroom.user_id = @user.id
 		if @classroom.valid?
 			@classroom.save
-			redirect_to user_classrooms_path(current_user)
+			redirect_to root_path
 		else 
 			render 'users/index'
 		end
@@ -54,7 +54,7 @@ class ClassroomsController < ApplicationController
 		@user = current_user
 		if @classroom.valid?
 			@classroom.update(classroom_params)
-			redirect_to user_classroom_path(@user.id,@classroom.id)
+			redirect_to root_path
 		else 
 			render 'edit'
 		end
@@ -64,7 +64,7 @@ class ClassroomsController < ApplicationController
 		@user = current_user
 		@classroom.user_id = @user.id
 		@classroom.destroy
-		redirect_to user_classrooms_path
+		redirect_to root_path
 	end
 
 	def next_classroom 
