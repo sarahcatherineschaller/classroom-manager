@@ -19,8 +19,9 @@
 <br>
 <h3><%= link_to 'All Students', students_path, :class => "load_students" %></h3>
 <div class="students"></div>
-<br>
 <div class="studentName"></div>
+
+<br>
 
 <h4>Add a new student:</h4>
 <%= form_for(@student) do |f| %>
@@ -30,6 +31,11 @@
 
 	<%= f.label :last_name %>
 	<%= f.text_field :last_name %>
+
+	<br>
+
+	<%= f.label :grade %>
+	<%= f.text_field :grade %>
 
 	<br>
 

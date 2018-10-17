@@ -14,7 +14,7 @@ class StudentsController < ApplicationController
 		@classroom = Classroom.find_by(id:params[:id])
 		if @student.valid? 
 			@student.save 
-			redirect_to student_path(@student)
+			render json: @student, status: 201
 		else 
 			render 'new'
 		end

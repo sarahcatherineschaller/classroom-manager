@@ -33,5 +33,22 @@ $(function() {
 		e.preventDefault();
 	});
 
+
+
+	$("#new_student").on("submit", function(e) {
+		var values = $(this).serialize(); 
+		var posting = $.post('/students', values);
+
+		posting.done(function(data) {
+			
+			var student = data;
+			$(".studentName").append('<a href="students/' + student.id +'">' + student.last_name + ", " + student.first_name + "</a><br>");
+			$("#student_first_name").val("");
+			$("#student_last_name").val("");
+			$("#student_grade").val("");
+		});
+		e.preventDefault();
+	});
+
 });
 
