@@ -34,6 +34,21 @@ $(function() {
 		e.preventDefault();
 	});
 
+
+
+	$("#new_classroom").on("submit", function(e) {
+		var userId = parseInt(this.action.split("/")[4])
+		var values = $(this).serialize(); 
+		var posting = $.post('/users/' + userId + '/classrooms', values)
+
+		posting.done(function(data) {
+			var classroom = data;
+			$(".subject").append('<a href="users/' + classroom.user_id + '/classrooms/' + classroom.id + '">' + classroom.subject + "</a><br>");
+		});
+		e.preventDefault();
+	});
+
+
 });
 
 

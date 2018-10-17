@@ -27,18 +27,12 @@ $(function() {
 		e.preventDefault();
 	});
 
-	//submit classroom via AJAX
-	$("#new_classroom").on("submit", function(e) {
-		alert("you clicked submit!");
-
-		e.preventDefault();
-	});
 
 	//submit student via AJAX
-	$("#new_student").on("submit", function(e) {
-		alert("you clicked submit!");
+	// $("#new_student").on("submit", function(e) {
+	// 	alert("you clicked submit!");
 
-		e.preventDefault();
-	});
+	// 	e.preventDefault();
+	// });
 
 });

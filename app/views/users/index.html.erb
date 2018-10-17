@@ -3,6 +3,7 @@
 
 <h3><%= link_to 'My Classrooms', user_classrooms_path(current_user), :class => "load_classrooms" %></h3>
 <div class="classrooms"></div>
+<div class="subject"></div>
 <br>
 
 <h4>Add a new classroom:</h4>
@@ -19,6 +20,7 @@
 <h3><%= link_to 'All Students', students_path, :class => "load_students" %></h3>
 <div class="students"></div>
 <br>
+<div class="studentName"></div>
 
 <h4>Add a new student:</h4>
 <%= form_for(@student) do |f| %>

@@ -19,7 +19,7 @@ class ClassroomsController < ApplicationController
 		@classroom.user_id = @user.id
 		if @classroom.valid?
 			@classroom.save
-			redirect_to root_path
+			render json: @classroom, status: 201
 		else 
 			render 'users/index'
 		end
