@@ -1,7 +1,6 @@
 $(function() {
-
+	//append student info to show page
 	function loadStudent(data) {
-		
 		$(".js-next-student").attr("data-id", data["id"]);
 		$(".js-previous-student").attr("data-id", data["id"]);
 		var $student_name = $(".studentName").html('');
@@ -14,17 +13,16 @@ $(function() {
 		});
 	}
 
+	//next button
 	$(".js-next-student").on("click", function(e) {
-		
 		var id = $(".js-next-student").attr("data-id") 
 		$.get("/students/" + id + "/next", function(data) {
-			
-
 			loadStudent(data);
 		});
 		e.preventDefault();
 	});
 
+	//previous button
 	$(".js-previous-student").on("click", function(e) {
 		var id = $(".js-previous-student").attr("data-id")
 		$.get("/students/" + id + "/previous", function(data) {
@@ -34,7 +32,7 @@ $(function() {
 	});
 
 
-
+	//new student form on user index page
 	$("#new_student").on("submit", function(e) {
 		var values = $(this).serialize(); 
 		var posting = $.post('/students', values);
@@ -49,6 +47,21 @@ $(function() {
 		});
 		e.preventDefault();
 	});
+
+	//load students on user index page
+		$("a.load_students").on("click", function(e) {
+		$.get(this.href).done(function(data) {
+
+			var $students = $("div.students")
+			$students.html("")
+			data.forEach(function(student) {
+				$students.append('<a href="students/' + student.id +'">' + student.last_name + ", " + student.first_name + "</a><br>");
+			});
+		});
+		e.preventDefault();
+
+	});
+
 
 });
 
