@@ -51,6 +51,13 @@ $(function() {
 		e.preventDefault();
 	});
 
+	function Classroom(id, subject, students) {
+		this.id = id 
+		this.subject = subject 
+		this.students = students
+	}
+
+
 
 });
 
