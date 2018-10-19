@@ -2,15 +2,23 @@
 
 $(function() {
 
-	//append classroom info to show page
-	function loadClassroom(data) {
-		$(".js-next").attr("data-id", data["id"]);
-		$(".js-previous").attr("data-id", data["id"]);
-		var $subject = $(".classroomSubject").html('');
-		$subject.append("<h3>" + data.subject + "</h3>");
-		
-		var $students = $(".classroomStudents").html(''); 
-		data['students'].forEach(function(student) {
+	function Classroom(id, students, subject, user) {
+		this.id = id 
+		this.students = students 
+		this.subject = subject 
+		this.user = user 
+	}
+
+	Classroom.prototype.loadClassroom = function() {
+		$(".js-next").attr("data-id", this.id);
+		$(".js-previous").attr("data-id", this.id);
+
+		let $subject = $(".classroomSubject").html('');
+		$subject.append("<h3>" + this.subject + "</h3>");
+
+		let $students = $(".classroomStudents").html(''); 
+		let students = this.students
+		students.forEach(function(student) {
 			first_name = student.first_name 
 			last_name = student.last_name 
 			$students.append(`<tr><td>${first_name} ${last_name}`);
@@ -22,7 +30,10 @@ $(function() {
 		var id = $(".js-next").attr("data-id") 
 		var userId = parseInt(window.location.pathname.split("/")[2])
 		$.get("/users/" + userId + "/classrooms/" + id + "/next", function(data) {
-			loadClassroom(data);
+
+			let classroom = new Classroom(data.id, data.students, data.subject, data.user)
+
+			classroom.loadClassroom()
 		});
 		e.preventDefault();
 	});
@@ -32,7 +43,10 @@ $(function() {
 		var id = $(".js-previous").attr("data-id")
 		var userId = parseInt(window.location.pathname.split("/")[2])
 		$.get("/users/" + userId + "/classrooms/" + id + "/previous", function(data) {
-			loadClassroom(data);
+			
+			let classroom = new Classroom(data.id, data.students, data.subject, data.user)
+
+			classroom.loadClassroom()
 		});
 		e.preventDefault();
 	});
@@ -55,7 +69,7 @@ $(function() {
 	});
 
 	//load classroom on user index page
-		$("a.load_classrooms").on("click", function(e) {
+	$("a.load_classrooms").on("click", function(e) {
 		$.get(this.href).done(function(data) {
 		
 			var $classrooms = $("div.classrooms")
@@ -68,13 +82,6 @@ $(function() {
 		e.preventDefault();
 	});
 
-
-	//make classroom object
-	function Classroom(id, subject, students) {
-		this.id = id 
-		this.subject = subject 
-		this.students = students
-	}
 
 
 
