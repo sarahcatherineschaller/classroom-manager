@@ -3,3 +3,5 @@ class ClassroomSerializer < ActiveModel::Serializer
   belongs_to :user
   has_many :students
 end
+
+#telling rails these are the attrs that we want to use

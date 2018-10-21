@@ -25,6 +25,13 @@ $(function() {
 		})
 	}
 
+	//alphabetize button
+	$(".alphabetize").on("click", function(e) {
+		alert("You clicked the button!");
+
+		e.preventDefault();
+	})
+
 	//next button
 	$(".js-next").on("click", function(e) {
 		var id = $(".js-next").attr("data-id") 
@@ -54,8 +61,10 @@ $(function() {
 
 	//new classroom form on user index page
 	$("#new_classroom").on("submit", function(e) {
-		var userId = parseInt(this.action.split("/")[4])
+
+		var userId = parseInt(this["data-user_id"])
 		var values = $(this).serialize(); 
+
 		var posting = $.post('/users/' + userId + '/classrooms', values)
 
 
@@ -70,7 +79,9 @@ $(function() {
 
 	//load classroom on user index page
 	$("a.load_classrooms").on("click", function(e) {
+
 		$.get(this.href).done(function(data) {
+			
 		
 			var $classrooms = $("div.classrooms")
 			$classrooms.html("")

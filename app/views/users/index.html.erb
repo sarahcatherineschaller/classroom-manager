@@ -6,8 +6,13 @@
 <div class="subject"></div>
 <br>
 
+<div class="alphabetize"><button type="button">Alphabetize Classroom List</button></div>
+
+<br>
+<br>
+
 <h4>Add a new classroom:</h4>
-<%= form_for([current_user, @classroom]) do |f| %>
+<%= form_for([current_user, @classroom], html: {"data-user_id": current_user.id}) do |f| %>
 	<%= f.label :subject %>
 	<%= f.text_field :subject %>
 	<br>

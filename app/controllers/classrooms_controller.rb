@@ -4,7 +4,7 @@ class ClassroomsController < ApplicationController
 	def index 
 		@classrooms = User.find(params[:user_id]).classrooms 
 		@user = current_user
-		render json: @classrooms.to_json
+		render json: @classrooms
 	end 
 	
 
