@@ -25,13 +25,6 @@ $(function() {
 		})
 	}
 
-	//alphabetize button
-	$(".alphabetize").on("click", function(e) {
-		alert("You clicked the button!");
-
-		e.preventDefault();
-	})
-
 	//next button
 	$(".js-next").on("click", function(e) {
 		var id = $(".js-next").attr("data-id") 
@@ -81,6 +74,7 @@ $(function() {
 	$("a.load_classrooms").on("click", function(e) {
 
 		$.get(this.href).done(function(data) {
+
 			
 		
 			var $classrooms = $("div.classrooms")
@@ -92,6 +86,29 @@ $(function() {
 		});
 		e.preventDefault();
 	});
+
+	//alphabetize button
+	$(".alphabetize").on("click", function(e) {
+		
+		$.get('/users/2/classrooms').done(function(data) {
+			var $classrooms = $("div.classrooms") 
+			$classrooms.html("")
+
+			var list = []
+
+			data.forEach(function(classroom) {
+				list.push(classroom.subject + "<br>")
+				list.sort()
+			})
+
+			$classrooms.append(list)
+			
+
+		})
+		
+
+		e.preventDefault();
+	})
 
 
 
