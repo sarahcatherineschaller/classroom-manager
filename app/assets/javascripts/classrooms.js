@@ -89,8 +89,8 @@ $(function() {
 
 	//alphabetize button
 	$(".alphabetize").on("click", function(e) {
-		
-		$.get('/users/2/classrooms').done(function(data) {
+		var userId = $(this).attr("data-id")
+		$.get('/users/' + userId + '/classrooms').done(function(data) {
 			var $classrooms = $("div.classrooms") 
 			$classrooms.html("")
 
